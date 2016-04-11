@@ -92,6 +92,25 @@ for sentence in sentences:
     obj = get_coplement(verbs)
     allSentence.append([{'Sujeito': subj, 'Verbo': verbs, 'Objeto': obj, 'Frase': sentence}])
 
+# print(allSentence[0][0])
+
+# TODO REMOVE INTERSECTION OF SUBJECT AND OBJECT AS STARTED ABOVE
+for a in allSentence:
+    for alls in a:
+        subj_len = len(alls["Sujeito"][0])
+        if subj_len > 1:
+            print(subj_len)
+            print(alls["Sujeito"][0])
+            i = 0
+            while i < subj_len:
+                print(alls["Sujeito"][i+1])
+                next_subj = alls["Sujeito"][i+1]
+                actual_object = alls["Objeto"][i]
+                set_next_subj = set(next_subj)
+                set_actual_object = set(actual_object)
+                i += 1
+                print set_next_subj.intersection(set_actual_object)
+                print("__________________________")
 
 # for i in allSentence:
 #     print(i)

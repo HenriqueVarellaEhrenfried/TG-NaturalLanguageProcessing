@@ -1,7 +1,7 @@
 from spacy.en import English
 from nltk.stem.wordnet import WordNetLemmatizer
 from pattern.en import singularize
-import re 
+import re
 
 # sentence = 'The man in the room is our teacher.'
 # sentence = 'LIB system shall keep track of all data required by copyright licensing agencies In the Kingdom and elsewhere'
@@ -15,32 +15,36 @@ nlp = English()
 # doc = nlp(unicode(sentence))
 verb = WordNetLemmatizer()
 
-def get_subject(doc): 
-	subject_init_token =[]
-	for token in doc:
-		if (re.match(r'nsubj',token.dep_)):
-			subject_init_token.append(token)
-	subjects = []
-	for token in subject_init_token:
-		partial_subtree_subject = []
-		for t in token.subtree:
-			partial_subtree_subject.append(t)
-		subjects.append(partial_subtree_subject)
-	return(subjects, subject_init_token)
-	
+
+def get_subject(doc):
+    subject_init_token = []
+    for token in doc:
+        if (re.match(r'nsubj', token.dep_)):
+            subject_init_token.append(token)
+    subjects = []
+    for token in subject_init_token:
+        partial_subtree_subject = []
+        for t in token.subtree:
+            partial_subtree_subject.append(t)
+        subjects.append(partial_subtree_subject)
+    return (subjects, subject_init_token)
+
+
 def get_infinitive_verb(vb):
-	verbs = []
-	for v in vb:
-		verbs.append(verb.lemmatize(v.text.encode('ascii','replace'),'v'))
-	return verbs
-	
+    verbs = []
+    for v in vb:
+        verbs.append(verb.lemmatize(v.text.encode('ascii', 'replace'), 'v'))
+    return verbs
+
+
 def get_verb(subj):
-	verbs = []
-	for s in subj[1]:
-		verb_in_sentence = s.head
-		verbs.append(verb_in_sentence)
-	return verbs
-	
+    verbs = []
+    for s in subj[1]:
+        verb_in_sentence = s.head
+        verbs.append(verb_in_sentence)
+    return verbs
+
+
 # def get_object(verbs): 
 # 	object_init_token =[]
 # 	for token in verbs:
@@ -55,16 +59,17 @@ def get_verb(subj):
 # 		objects.append(partial_subtree_object)
 # 	return(objects, object_init_token)
 
-def get_coplement(verbs): 
-	objects = []
-	for token in verbs:
-		for t in token.rights:
-			partial_subtree_object = []
-			for t1 in t.subtree:
-				partial_subtree_object.append(t1)
-			objects.append(partial_subtree_object)
-	return(objects)
-	
+def get_coplement(verbs):
+    objects = []
+    for token in verbs:
+        for t in token.rights:
+            partial_subtree_object = []
+            for t1 in t.subtree:
+                partial_subtree_object.append(t1)
+            objects.append(partial_subtree_object)
+    return (objects)
+
+
 # doc = nlp(unicode(sentence))
 # subj = get_subject(doc)
 # verbs = get_verb(subj)
@@ -80,13 +85,17 @@ def get_coplement(verbs):
 allSentence = []
 
 for sentence in sentences:
-	doc = nlp(unicode(sentence))
-	subj = get_subject(doc)
-	verbs = get_verb(subj)
-	infinitive_verbs = get_infinitive_verb(verbs)
-	obj = get_coplement(verbs)
-	allSentence.append([{'Sujeito':subj, 'Verbo': verbs, 'Objeto': obj, 'Frase':sentence}])
-	
-for i in allSentence:
-	print(i)
-	print(" ")
+    doc = nlp(unicode(sentence))
+    subj = get_subject(doc)
+    verbs = get_verb(subj)
+    infinitive_verbs = get_infinitive_verb(verbs)
+    obj = get_coplement(verbs)
+    allSentence.append([{'Sujeito': subj, 'Verbo': verbs, 'Objeto': obj, 'Frase': sentence}])
+
+
+# for i in allSentence:
+#     print(i)
+#     print(" ")
+
+# The way to acces the dictionary
+# print(allSentence[0][0]["Sujeito"])

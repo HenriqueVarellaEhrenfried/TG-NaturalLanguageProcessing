@@ -45,19 +45,21 @@ def get_verb(subj):
     return verbs
 
 
-# def get_object(verbs): 
-# 	object_init_token =[]
-# 	for token in verbs:
-# 		for t in token.children:
-# 			if (re.match(r'.*obj.*',t.dep_)):
-# 				object_init_token.append(t)
-# 	objects = []
-# 	for token in object_init_token:
-# 		partial_subtree_object = []
-# 		for t in token.subtree:
-# 			partial_subtree_object.append(t)
-# 		objects.append(partial_subtree_object)
-# 	return(objects, object_init_token)
+def get_object(verbs): 
+	object_init_token =[]
+	for token in verbs:
+		for t in token.children:
+			if (re.match(r'.*obj.*',t.dep_)):
+				object_init_token.append([t,token])
+			if (re.match(r'conj',t.dep_)):
+			    object_init_token.append([t,token])
+	objects = []
+	for token in object_init_token[0]:
+		partial_subtree_object = []
+		for t in token.subtree:
+			partial_subtree_object.append(t)
+		objects.append(partial_subtree_object)
+	return(objects, object_init_token)
 
 def get_coplement(verbs):
     objects = []
@@ -89,28 +91,18 @@ for sentence in sentences:
     subj = get_subject(doc)
     verbs = get_verb(subj)
     infinitive_verbs = get_infinitive_verb(verbs)
-    obj = get_coplement(verbs)
+    # obj = get_coplement(verbs)
+    obj = get_object(verbs)
     allSentence.append([{'Sujeito': subj, 'Verbo': verbs, 'Objeto': obj, 'Frase': sentence}])
+
+print(allSentence)
+
+
 
 # print(allSentence[0][0])
 
 # TODO REMOVE INTERSECTION OF SUBJECT AND OBJECT AS STARTED ABOVE
-for a in allSentence:
-    for alls in a:
-        subj_len = len(alls["Sujeito"][0])
-        if subj_len > 1:
-            print(subj_len)
-            print(alls["Sujeito"][0])
-            i = 0
-            while i < subj_len:
-                print(alls["Sujeito"][i+1])
-                next_subj = alls["Sujeito"][i+1]
-                actual_object = alls["Objeto"][i]
-                set_next_subj = set(next_subj)
-                set_actual_object = set(actual_object)
-                i += 1
-                print set_next_subj.intersection(set_actual_object)
-                print("__________________________")
+
 
 # for i in allSentence:
 #     print(i)

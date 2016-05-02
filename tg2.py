@@ -59,14 +59,14 @@ def get_complement(verbs):
 def flattern_array(array,space):
     i = 1
     size = len(array)
-    item = array[0]
+    item = str(array[0])
     if space:
         while i < size:
-            item = item + ' ' + item[i]
+            item = item + ' ' + str(item[i])
             i = i + 1
     else:
         while i < size:
-            item = item + item[i]
+            item = item + str(item[i])
             i = i + 1
     return item
         
@@ -84,15 +84,16 @@ def generate_possible_user_cases(subj,verbs,obj):
         action = verbs[index]
         all_gone = False
         while description_iterator < number_of_description:
-            if description[description_iterator][1][1] == action:
+            if description[description_iterator][1] == action:
                 complement = flattern_array(description[description_iterator][0],True)
-                description_iterator = description_iterator + 1
+
             else:
                 complement = None
             if complement:
-                print(actor+"\t"+action+"\t"+complement)
+                print(str(actor)+"\t"+str(action)+"\t"+str(complement))
             else:
-                print(actor+"\t"+action+"\t"+"---Nao ha complemento---")
+                print(str(actor)+"\t"+str(action)+"\t"+"---Nao ha complemento---")
+            description_iterator = description_iterator + 1
         
 
 

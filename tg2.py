@@ -5,9 +5,10 @@ import re
 
 # sentence = 'The man in the room is our teacher.'
 # sentence = 'LIB system shall keep track of all data required by copyright licensing agencies In the Kingdom and elsewhere'
-sentence = 'Michael Wasalsky and Phil Sulivan could have frightened those children'
+# sentence = 'Michael Wasalsky and Phil Sulivan could have frightened those children'
 # sentence = 'The book was read by me'
 # sentence = 'Because the boys went to the park, they did not go to the zoo'
+sentence = 'A Company needs a new system called, Payroll System, to allow employees to record timecard information electronically and automatically generate paychecks based on the number of hours worked and total amount of sales(for commissioned employees)'
 problem = "A Company needs a new system called, Payroll System, to allow employees to record timecard information electronically and automatically generate paychecks based on the number of hours worked and total amount of sales(for commissioned employees). The new system will be state of art and will have a Windows-based desktop interface to allow employees to enter timecard information, enter purchase orders, change employee preferences (such as payment method) and create various reports. The system will run on individual employee desktops throughout the entire company.The system will retain information on all employees in the company. The system must pay each employee the correct amount, on time, by the method that they specify.Some employees work by the hour and are paid an hourly rate. They submit timecards that record the date and number of hours worked for a particular charge number. Some employees are paid a flat salary. Even though they are paid a flat salary, they submit timecards that record the date and hours worked. Some of the salaried employees also receive a commission based on their sales. They submit purchase orders that reflect the date and amount of the sale.One of the most requested features of the new system is employee reporting.Employees will be able to query the system for hours worked, totals of all hours billed to a project, total pay received year to date, etc.,Employees can choose their method of payment. They can have their paychecks mailed to the postal address of their choice, or they can request direct deposit and have their paycheck deposited into a bank account of their choosing. The employee may also choose to pick their paychecks up at the offices. The Payroll Administrator maintains employee information. He is responsible for adding new employees, deleting employees and changing all employee information such as name, address and payment classification(hourly, salaried, commissioned), as well as running administrative reports.The Payroll application will run automatically every Friday and on the last working day of month. It will pay the appropriate employees on those days. The system will be told what date employees are to be paid, so it will generate payments for records from the last time the employee was paid to the specified date. The new system is being designed so that the payroll will always be generated automatically and there will be need for any manual intervention"
 sentences = problem.split(".")
 
@@ -45,76 +46,68 @@ def get_verb(subj):
     return verbs
 
 
-# def get_object(verbs): 
-# 	object_init_token =[]
-# 	for token in verbs:
-# 		for t in token.children:
-# 			if (re.match(r'.*obj.*',t.dep_)):
-# 				object_init_token.append(t)
-# 	objects = []
-# 	for token in object_init_token:
-# 		partial_subtree_object = []
-# 		for t in token.subtree:
-# 			partial_subtree_object.append(t)
-# 		objects.append(partial_subtree_object)
-# 	return(objects, object_init_token)
-
-def get_coplement(verbs):
+def get_complement(verbs):
     objects = []
     for token in verbs:
         for t in token.rights:
             partial_subtree_object = []
             for t1 in t.subtree:
                 partial_subtree_object.append(t1)
-            objects.append(partial_subtree_object)
+            objects.append([partial_subtree_object,[t.head,t]])
     return (objects)
+    
+def flattern_array(array,space):
+    i = 1
+    size = len(array)
+    item = array[0]
+    if space:
+        while i < size:
+            item = item + ' ' + item[i]
+            i = i + 1
+    else:
+        while i < size:
+            item = item + item[i]
+            i = i + 1
+    return item
+        
+    
+    
+def generate_possible_user_cases(subj,verbs,obj):
+    index = 0
+    number_of_verbs = len(subj)
+    description = obj[0]
+    number_of_description = len(description)
+    description_iterator = 0
+    print("Ator\tAcao\tComplemento")
+    while index < number_of_verbs:
+        actor = flattern_array(subj[index],True)
+        action = verbs[index]
+        all_gone = False
+        while description_iterator < number_of_description:
+            if description[description_iterator][1][1] == action:
+                complement = flattern_array(description[description_iterator][0],True)
+                description_iterator = description_iterator + 1
+            else:
+                complement = None
+            if complement:
+                print(actor+"\t"+action+"\t"+complement)
+            else:
+                print(actor+"\t"+action+"\t"+"---Nao ha complemento---")
+        
 
 
-# doc = nlp(unicode(sentence))
-# subj = get_subject(doc)
-# verbs = get_verb(subj)
-# infinitive_verbs = get_infinitive_verb(verbs)
-# obj = get_object(verbs)
-
-# subj = get_subject(doc)	
-# verb = get_infinitive_verb(subj)
-# obj = get_object(doc)
-# print(subj)
-# print(get_infinitive_verb(verbs))
-# print(obj)
 allSentence = []
 
-for sentence in sentences:
-    doc = nlp(unicode(sentence))
-    subj = get_subject(doc)
-    verbs = get_verb(subj)
-    infinitive_verbs = get_infinitive_verb(verbs)
-    obj = get_coplement(verbs)
-    allSentence.append([{'Sujeito': subj, 'Verbo': verbs, 'Objeto': obj, 'Frase': sentence}])
+# for sentence in sentences:
+doc = nlp(unicode(sentence))
+subj = get_subject(doc)
+verbs = get_verb(subj)
+infinitive_verbs = get_infinitive_verb(verbs)
+obj = get_complement(verbs)
+allSentence.append([{'Sujeito': subj, 'Verbo': verbs, 'Objeto': obj, 'Frase': sentence}])
+generate_possible_user_cases(subj,verbs,obj)
 
-# print(allSentence[0][0])
-
-# TODO REMOVE INTERSECTION OF SUBJECT AND OBJECT AS STARTED ABOVE
-for a in allSentence:
-    for alls in a:
-        subj_len = len(alls["Sujeito"][0])
-        if subj_len > 1:
-            print(subj_len)
-            print(alls["Sujeito"][0])
-            i = 0
-            while i < subj_len:
-                print(alls["Sujeito"][i+1])
-                next_subj = alls["Sujeito"][i+1]
-                actual_object = alls["Objeto"][i]
-                set_next_subj = set(next_subj)
-                set_actual_object = set(actual_object)
-                i += 1
-                print set_next_subj.intersection(set_actual_object)
-                print("__________________________")
-
-# for i in allSentence:
-#     print(i)
-#     print(" ")
+# print(obj)
 
 # The way to acces the dictionary
 # print(allSentence[0][0]["Sujeito"])

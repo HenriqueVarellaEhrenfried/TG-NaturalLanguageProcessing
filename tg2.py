@@ -55,46 +55,49 @@ def get_complement(verbs):
                 partial_subtree_object.append(t1)
             objects.append([partial_subtree_object,[t.head,t]])
     return (objects)
-    
-def flattern_array(array,space):
-    i = 1
-    size = len(array)
-    item = str(array[0])
-    if space:
-        while i < size:
-            item = item + ' ' + str(item[i])
-            i = i + 1
-    else:
-        while i < size:
-            item = item + str(item[i])
-            i = i + 1
-    return item
-        
-    
+def  get_number_of_description(description, action):
+    number = len(description)
+    i = 0
+    soma = 0
+    while i < number:
+        if description[i][1][0] == action:
+            soma = soma + 1
+        i = i + 1
+    return soma
     
 def generate_possible_user_cases(subj,verbs,obj):
+    print "----------SUJEITO----------"
+    print subj
+    print "----------VERBO----------"
+    print verbs
+    print "----------OBJETO----------"
+    print obj
     index = 0
-    number_of_verbs = len(subj)
-    description = obj[0]
-    number_of_description = len(description)
+    number_of_verbs = len(verbs)
+    print "----------NUM_VERBS----------"
+    print number_of_verbs
+    description = obj
     description_iterator = 0
     print("Ator\tAcao\tComplemento")
     while index < number_of_verbs:
-        actor = flattern_array(subj[index],True)
+        actor = subj[0][index]
         action = verbs[index]
-        all_gone = False
+        number_of_description = get_number_of_description(description, action)
         while description_iterator < number_of_description:
-            if description[description_iterator][1] == action:
-                complement = flattern_array(description[description_iterator][0],True)
-
+            if description[description_iterator][1][0] == action:
+                if description[description_iterator][0] != None:
+                    complement = description[description_iterator][0]
+                else:
+                    complement = None
             else:
-                complement = None
+                next
             if complement:
                 print(str(actor)+"\t"+str(action)+"\t"+str(complement))
             else:
                 print(str(actor)+"\t"+str(action)+"\t"+"---Nao ha complemento---")
             description_iterator = description_iterator + 1
-        
+        index = index + 1
+        description_iterator = 0
 
 
 allSentence = []

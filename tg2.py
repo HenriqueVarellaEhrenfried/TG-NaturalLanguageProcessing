@@ -1,6 +1,7 @@
 from spacy.en import English
 from nltk.stem.wordnet import WordNetLemmatizer
 from pattern.en import singularize
+from itertools import chain
 import re
 
 # sentence = 'The man in the room is our teacher.'
@@ -78,26 +79,26 @@ def generate_possible_user_cases(subj,verbs,obj):
     print number_of_verbs
     description = obj
     description_iterator = 0
+    number_of_description = 0
     print("Ator\tAcao\tComplemento")
     while index < number_of_verbs:
         actor = subj[0][index]
         action = verbs[index]
-        number_of_description = get_number_of_description(description, action)
+        number_of_description = number_of_description + get_number_of_description(description, action)
         while description_iterator < number_of_description:
-            if description[description_iterator][1][0] == action:
+            possible_obj = description[description_iterator]
+            if  possible_obj[1][0] == action:
                 if description[description_iterator][0] != None:
                     complement = description[description_iterator][0]
                 else:
                     complement = None
-            else:
-                next
-            if complement:
-                print(str(actor)+"\t"+str(action)+"\t"+str(complement))
-            else:
-                print(str(actor)+"\t"+str(action)+"\t"+"---Nao ha complemento---")
+                if complement:
+                    print(str(actor)+"\t"+str(action)+"\t"+str(complement))
+                else:
+                    print(str(actor)+"\t"+str(action)+"\t"+"---Nao ha complemento---")
             description_iterator = description_iterator + 1
         index = index + 1
-        description_iterator = 0
+
 
 
 allSentence = []

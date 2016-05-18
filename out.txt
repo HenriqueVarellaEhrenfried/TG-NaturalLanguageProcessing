@@ -1,0 +1,293 @@
+A Company needs a new system called, Payroll System, to allow employees to record timecard information electronically and automatically generate paychecks based on the number of hours worked and total amount of sales(for commissioned employees)
+----------SUJEITO----------
+([[A , Company ], [employees ], [the , number , of , hours ]], [Company , employees , number ])
+----------VERBO----------
+[needs , record , worked ]
+----------OBJETO----------
+[[[a , new , system , called, , , Payroll , System, , ], [needs , system ]], [[to , allow , employees , to , record , timecard , information , electronically , and , automatically , generate , paychecks , based , on ], [needs , allow ]], [[the , number , of , hours , worked , and , total , amount , of , sales(for , commissioned , employees, )], [needs , worked ]], [[timecard , information ], [record , information ]], [[electronically ], [record , electronically ]], [[and ], [worked , and ]], [[total , amount , of , sales(for , commissioned , employees, )], [worked , amount ]]]
+----------NUM_VERBS----------
+3
+Ator	Acao	Complemento
+[A , Company ]	needs 	[a , new , system , called, , , Payroll , System, , ]
+[A , Company ]	needs 	[to , allow , employees , to , record , timecard , information , electronically , and , automatically , generate , paychecks , based , on ]
+[A , Company ]	needs 	[the , number , of , hours , worked , and , total , amount , of , sales(for , commissioned , employees, )]
+[employees ]	record 	[timecard , information ]
+[employees ]	record 	[electronically ]
+[the , number , of , hours ]	worked 	[and ]
+[the , number , of , hours ]	worked 	[total , amount , of , sales(for , commissioned , employees, )]
+ The new system will be state of art and will have a Windows-based desktop interface to allow employees to enter timecard information, enter purchase orders, change employee preferences (such as payment method) and create various reports
+----------SUJEITO----------
+([[The , new , system ], [employees ]], [system , employees ])
+----------VERBO----------
+[be , enter ]
+----------OBJETO----------
+[[[state , of , art ], [be , state ]], [[and ], [be , and ]], [[will , have , a , Windows, -, based , desktop , interface , to , allow , employees , to , enter , timecard , information, , , enter , purchase , orders, , , change , employee , preferences , (, such , as , payment , method, ) , and , create , various , reports], [be , have ]], [[timecard , information], [enter , information]], [[, ], [enter , , ]], [[enter , purchase , orders, , , change , employee , preferences , (, such , as , payment , method, ) , and , create , various , reports], [enter , enter ]]]
+----------NUM_VERBS----------
+2
+Ator	Acao	Complemento
+[The , new , system ]	be 	[state , of , art ]
+[The , new , system ]	be 	[and ]
+[The , new , system ]	be 	[will , have , a , Windows, -, based , desktop , interface , to , allow , employees , to , enter , timecard , information, , , enter , purchase , orders, , , change , employee , preferences , (, such , as , payment , method, ) , and , create , various , reports]
+[employees ]	enter 	[timecard , information]
+[employees ]	enter 	[, ]
+[employees ]	enter 	[enter , purchase , orders, , , change , employee , preferences , (, such , as , payment , method, ) , and , create , various , reports]
+ The system will run on individual employee desktops throughout the entire company
+----------SUJEITO----------
+([[The , system ]], [system ])
+----------VERBO----------
+[run ]
+----------OBJETO----------
+[[[on , individual , employee , desktops , throughout , the , entire , company], [run , on ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[The , system ]	run 	[on , individual , employee , desktops , throughout , the , entire , company]
+The system will retain information on all employees in the company
+----------SUJEITO----------
+([[The , system ]], [system ])
+----------VERBO----------
+[retain ]
+----------OBJETO----------
+[[[information , on , all , employees , in , the , company], [retain , information ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[The , system ]	retain 	[information , on , all , employees , in , the , company]
+ The system must pay each employee the correct amount, on time, by the method that they specify
+----------SUJEITO----------
+([[The , system ], [they ]], [system , they ])
+----------VERBO----------
+[pay , specify]
+----------OBJETO----------
+[[[each , employee ], [pay , employee ]], [[the , correct , amount], [pay , amount]], [[, ], [pay , , ]], [[on , time], [pay , on ]], [[, ], [pay , , ]], [[by , the , method ], [pay , by ]], [[that , they , specify], [pay , specify]]]
+----------NUM_VERBS----------
+2
+Ator	Acao	Complemento
+[The , system ]	pay 	[each , employee ]
+[The , system ]	pay 	[the , correct , amount]
+[The , system ]	pay 	[, ]
+[The , system ]	pay 	[on , time]
+[The , system ]	pay 	[, ]
+[The , system ]	pay 	[by , the , method ]
+[The , system ]	pay 	[that , they , specify]
+Some employees work by the hour and are paid an hourly rate
+----------SUJEITO----------
+([[Some , employees ]], [employees ])
+----------VERBO----------
+[work ]
+----------OBJETO----------
+[[[by , the , hour ], [work , by ]], [[and ], [work , and ]], [[are , paid , an , hourly , rate], [work , paid ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[Some , employees ]	work 	[by , the , hour ]
+[Some , employees ]	work 	[and ]
+[Some , employees ]	work 	[are , paid , an , hourly , rate]
+ They submit timecards that record the date and number of hours worked for a particular charge number
+----------SUJEITO----------
+([[They ], [that ]], [They , that ])
+----------VERBO----------
+[submit , record ]
+----------OBJETO----------
+[[[timecards , that , record , the , date , and , number , of , hours , worked , for , a , particular , charge , number], [submit , timecards ]], [[the , date , and , number , of , hours ], [record , date ]]]
+----------NUM_VERBS----------
+2
+Ator	Acao	Complemento
+[They ]	submit 	[timecards , that , record , the , date , and , number , of , hours , worked , for , a , particular , charge , number]
+[that ]	record 	[the , date , and , number , of , hours ]
+ Some employees are paid a flat salary
+----------SUJEITO----------
+([[Some , employees ]], [employees ])
+----------VERBO----------
+[paid ]
+----------OBJETO----------
+[[[a , flat , salary], [paid , salary]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[Some , employees ]	paid 	[a , flat , salary]
+ Even though they are paid a flat salary, they submit timecards that record the date and hours worked
+----------SUJEITO----------
+([[they ], [they ], [that ]], [they , they , that ])
+----------VERBO----------
+[paid , submit , record ]
+----------OBJETO----------
+[[[a , flat , salary], [paid , salary]], [[timecards , that , record , the , date , and , hours ], [submit , timecards ]], [[worked], [submit , worked]], [[the , date , and , hours ], [record , date ]]]
+----------NUM_VERBS----------
+3
+Ator	Acao	Complemento
+[they ]	paid 	[a , flat , salary]
+[they ]	submit 	[timecards , that , record , the , date , and , hours ]
+[they ]	submit 	[worked]
+[that ]	record 	[the , date , and , hours ]
+ Some of the salaried employees also receive a commission based on their sales
+----------SUJEITO----------
+([[Some , of , the , salaried , employees ]], [Some ])
+----------VERBO----------
+[receive ]
+----------OBJETO----------
+[[[a , commission , based , on , their , sales], [receive , commission ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[Some , of , the , salaried , employees ]	receive 	[a , commission , based , on , their , sales]
+ They submit purchase orders that reflect the date and amount of the sale
+----------SUJEITO----------
+([[They ], [that ]], [They , that ])
+----------VERBO----------
+[submit , reflect ]
+----------OBJETO----------
+[[[purchase , orders , that , reflect , the , date , and , amount , of , the , sale], [submit , orders ]], [[the , date , and , amount , of , the , sale], [reflect , date ]]]
+----------NUM_VERBS----------
+2
+Ator	Acao	Complemento
+[They ]	submit 	[purchase , orders , that , reflect , the , date , and , amount , of , the , sale]
+[that ]	reflect 	[the , date , and , amount , of , the , sale]
+One of the most requested features of the new system is employee reporting
+----------SUJEITO----------
+([[One , of , the , most , requested , features , of , the , new , system ]], [One ])
+----------VERBO----------
+[is ]
+----------OBJETO----------
+[[[employee , reporting], [is , reporting]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[One , of , the , most , requested , features , of , the , new , system ]	is 	[employee , reporting]
+Employees will be able to query the system for hours worked, totals of all hours billed to a project, total pay received year to date, etc
+----------SUJEITO----------
+([[Employees ], [total , pay ]], [Employees , pay ])
+----------VERBO----------
+[be , received ]
+----------OBJETO----------
+[[[able , to , query , the , system , for , hours ], [be , able ]], [[worked, , , totals , of , all , hours , billed , to , a , project, , , total , pay , received , year , to , date, , , etc], [be , received ]], [[year ], [received , year ]], [[to , date], [received , to ]], [[, ], [received , , ]], [[etc], [received , etc]]]
+----------NUM_VERBS----------
+2
+Ator	Acao	Complemento
+[Employees ]	be 	[able , to , query , the , system , for , hours ]
+[Employees ]	be 	[worked, , , totals , of , all , hours , billed , to , a , project, , , total , pay , received , year , to , date, , , etc]
+[total , pay ]	received 	[year ]
+[total , pay ]	received 	[to , date]
+[total , pay ]	received 	[, ]
+[total , pay ]	received 	[etc]
+,Employees can choose their method of payment
+----------SUJEITO----------
+([[Employees ]], [Employees ])
+----------VERBO----------
+[choose ]
+----------OBJETO----------
+[[[their , method , of , payment], [choose , method ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[Employees ]	choose 	[their , method , of , payment]
+ They can have their paychecks mailed to the postal address of their choice, or they can request direct deposit and have their paycheck deposited into a bank account of their choosing
+----------SUJEITO----------
+([[They ], [they ], [their , paycheck ], [their ]], [They , they , paycheck , their ])
+----------VERBO----------
+[have , request , deposited , choosing]
+----------OBJETO----------
+[[[their , paychecks , mailed , to , the , postal , address , of , their , choice], [have , paychecks ]], [[, ], [have , , ]], [[or ], [have , or ]], [[they , can , request , direct , deposit , and , have , their , paycheck , deposited , into , a , bank , account , of , their , choosing], [have , request ]], [[direct , deposit ], [request , deposit ]], [[and ], [request , and ]], [[have , their , paycheck , deposited , into , a , bank , account , of , their , choosing], [request , deposited ]], [[into , a , bank , account , of , their , choosing], [deposited , into ]]]
+----------NUM_VERBS----------
+4
+Ator	Acao	Complemento
+[They ]	have 	[their , paychecks , mailed , to , the , postal , address , of , their , choice]
+[They ]	have 	[, ]
+[They ]	have 	[or ]
+[They ]	have 	[they , can , request , direct , deposit , and , have , their , paycheck , deposited , into , a , bank , account , of , their , choosing]
+[they ]	request 	[direct , deposit ]
+[they ]	request 	[and ]
+[they ]	request 	[have , their , paycheck , deposited , into , a , bank , account , of , their , choosing]
+[their , paycheck ]	deposited 	[into , a , bank , account , of , their , choosing]
+ The employee may also choose to pick their paychecks up at the offices
+----------SUJEITO----------
+([[The , employee ]], [employee ])
+----------VERBO----------
+[choose ]
+----------OBJETO----------
+[[[to , pick , their , paychecks , up , at , the , offices], [choose , pick ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[The , employee ]	choose 	[to , pick , their , paychecks , up , at , the , offices]
+ The Payroll Administrator maintains employee information
+----------SUJEITO----------
+([[The , Payroll , Administrator ]], [Administrator ])
+----------VERBO----------
+[maintains ]
+----------OBJETO----------
+[[[employee , information], [maintains , information]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[The , Payroll , Administrator ]	maintains 	[employee , information]
+ He is responsible for adding new employees, deleting employees and changing all employee information such as name, address and payment classification(hourly, salaried, commissioned), as well as running administrative reports
+----------SUJEITO----------
+([[He ]], [He ])
+----------VERBO----------
+[is ]
+----------OBJETO----------
+[[[responsible , for , adding , new , employees, , , deleting , employees , and , changing , all , employee , information , such , as , name, , , address , and , payment , classification(hourly, , , salaried, , ], [is , responsible ]], [[commissioned, ), , ], [is , commissioned]], [[as , well , as , running , administrative , reports], [is , as ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[He ]	is 	[responsible , for , adding , new , employees, , , deleting , employees , and , changing , all , employee , information , such , as , name, , , address , and , payment , classification(hourly, , , salaried, , ]
+[He ]	is 	[commissioned, ), , ]
+[He ]	is 	[as , well , as , running , administrative , reports]
+The Payroll application will run automatically every Friday and on the last working day of month
+----------SUJEITO----------
+([[The , Payroll , application ]], [application ])
+----------VERBO----------
+[run ]
+----------OBJETO----------
+[[[automatically ], [run , automatically ]], [[every , Friday ], [run , Friday ]], [[and ], [run , and ]], [[on , the , last , working , day , of , month], [run , on ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[The , Payroll , application ]	run 	[automatically ]
+[The , Payroll , application ]	run 	[every , Friday ]
+[The , Payroll , application ]	run 	[and ]
+[The , Payroll , application ]	run 	[on , the , last , working , day , of , month]
+ It will pay the appropriate employees on those days
+----------SUJEITO----------
+([[It ]], [It ])
+----------VERBO----------
+[pay ]
+----------OBJETO----------
+[[[the , appropriate , employees ], [pay , employees ]], [[on , those , days], [pay , on ]]]
+----------NUM_VERBS----------
+1
+Ator	Acao	Complemento
+[It ]	pay 	[the , appropriate , employees ]
+[It ]	pay 	[on , those , days]
+ The system will be told what date employees are to be paid, so it will generate payments for records from the last time the employee was paid to the specified date
+----------SUJEITO----------
+([[The , system ], [it ], [the , employee ]], [system , it , employee ])
+----------VERBO----------
+[told , generate , paid ]
+----------OBJETO----------
+[[[what , date , employees ], [told , employees ]], [[are , to , be , paid], [told , are ]], [[, ], [told , , ]], [[so , it , will , generate , payments , for , records , from , the , last , time , the , employee , was , paid , to , the , specified , date], [told , generate ]], [[payments , for , records ], [generate , payments ]], [[from , the , last , time , the , employee , was , paid , to , the , specified , date], [generate , from ]], [[to , the , specified , date], [paid , to ]]]
+----------NUM_VERBS----------
+3
+Ator	Acao	Complemento
+[The , system ]	told 	[what , date , employees ]
+[The , system ]	told 	[are , to , be , paid]
+[The , system ]	told 	[, ]
+[The , system ]	told 	[so , it , will , generate , payments , for , records , from , the , last , time , the , employee , was , paid , to , the , specified , date]
+[it ]	generate 	[payments , for , records ]
+[it ]	generate 	[from , the , last , time , the , employee , was , paid , to , the , specified , date]
+[the , employee ]	paid 	[to , the , specified , date]
+ The new system is being designed so that the payroll will always be generated automatically and there will be need for any manual intervention
+----------SUJEITO----------
+([[The , new , system ], [the , payroll ]], [system , payroll ])
+----------VERBO----------
+[designed , generated ]
+----------OBJETO----------
+[[[so , that , the , payroll , will , always , be , generated , automatically , and , there , will , be , need , for , any , manual , intervention], [designed , generated ]], [[automatically ], [generated , automatically ]], [[and ], [generated , and ]], [[there , will , be , need , for , any , manual , intervention], [generated , need ]]]
+----------NUM_VERBS----------
+2
+Ator	Acao	Complemento
+[The , new , system ]	designed 	[so , that , the , payroll , will , always , be , generated , automatically , and , there , will , be , need , for , any , manual , intervention]
+[the , payroll ]	generated 	[automatically ]
+[the , payroll ]	generated 	[and ]
+[the , payroll ]	generated 	[there , will , be , need , for , any , manual , intervention]

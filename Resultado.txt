@@ -1,0 +1,175 @@
+{
+	'Sujeito': ([[A , Company ], [employees ], [the , number , of , hours ]], [Company , employees , number ]), 
+	'Num_Suj': 3, 
+	'Verbos': [needs , record , worked ], 
+	'Complemento': [[[a , new , system , called, , , Payroll , System, , , to , allow , employees , to , record , timecard , information , electronically , and , automatically , generate , paychecks , based , on , the , number , of , hours , worked , and , total , amount , of , sales(for , commissioned , employees, )], [needs , worked ]], [[timecard , information , electronically ], [record , electronically ]], [[and , total , amount , of , sales(for , commissioned , employees, )], [worked , amount ]]], 
+	'Sentence': 'A Company needs a new system called, Payroll System, to allow employees to record timecard information electronically and automatically generate paychecks based on the number of hours worked and total amount of sales(for commissioned employees)'
+}
+
+{
+	'Sujeito': ([[The , new , system ], [employees ]], [system , employees ]), 
+	'Num_Suj': 2, 
+	'Verbos': [be , enter ], 
+	'Complemento': [[[state , of , art , and , will , have , a , Windows, -, based , desktop , interface , to , allow , employees , to , enter , timecard , information, , , enter , purchase , orders, , , change , employee , preferences , (, such , as , payment , method, ) , and , create , various , reports], [be , have ]], [[timecard , information, , , enter , purchase , orders, , , change , employee , preferences , (, such , as , payment , method, ) , and , create , various , reports], [enter , enter ]]], 
+	'Sentence': ' The new system will be state of art and will have a Windows-based desktop interface to allow employees to enter timecard information, enter purchase orders, change employee preferences (such as payment method) and create various reports'
+}
+
+{
+	'Sujeito': ([[The , system ]], [system ]), 
+	'Num_Suj': 1, 
+	'Verbos': [run ], 
+	'Complemento': [[[on , individual , employee , desktops , throughout , the , entire , company], [run , on ]]], 
+	'Sentence': ' The system will run on individual employee desktops throughout the entire company'
+}
+
+{
+	'Sujeito': ([[The , system ]], [system ]), 
+	'Num_Suj': 1, 
+	'Verbos': [retain ], 
+	'Complemento': [[[information , on , all , employees , in , the , company], [retain , information ]]], 
+	'Sentence': 'The system will retain information on all employees in the company'
+}
+
+{
+	'Sujeito': ([[The , system ], [they ]], [system , they ]), 
+	'Num_Suj': 2, 
+	'Verbos': [pay , specify], 
+	'Complemento': [[[each , employee , the , correct , amount, , , on , time, , , by , the , method , that , they , specify], [pay , specify]], [[], [pay , specify]]], 
+	'Sentence': ' The system must pay each employee the correct amount, on time, by the method that they specify'
+}
+
+{
+	'Sujeito': ([[Some , employees ]], [employees ]), 
+	'Num_Suj': 1, 
+	'Verbos': [work ], 
+	'Complemento': [[[by , the , hour , and , are , paid , an , hourly , rate], [work , paid ]]], 
+	'Sentence': 'Some employees work by the hour and are paid an hourly rate'
+}
+
+{
+	'Sujeito': ([[They ], [that ]], [They , that ]), 
+	'Num_Suj': 2, 
+	'Verbos': [submit , record ], 
+	'Complemento': [[[timecards , that , record , the , date , and , number , of , hours , worked , for , a , particular , charge , number], [submit , timecards ]], [[the , date , and , number , of , hours ], [record , date ]]], 
+	'Sentence': ' They submit timecards that record the date and number of hours worked for a particular charge number'
+}
+
+{
+	'Sujeito': ([[Some , employees ]], [employees ]), 
+	'Num_Suj': 1, 
+	'Verbos': [paid ], 
+	'Complemento': [[[a , flat , salary], [paid , salary]]], 
+	'Sentence': ' Some employees are paid a flat salary'
+}
+
+{
+	'Sujeito': ([[they ], [they ], [that ]], [they , they , that ]), 
+	'Num_Suj': 3, 
+	'Verbos': [paid , submit , record ], 
+	'Complemento': [[[a , flat , salary], [paid , salary]], [[timecards , that , record , the , date , and , hours , worked], [submit , worked]], [[the , date , and , hours ], [record , date ]]], 
+	'Sentence': ' Even though they are paid a flat salary, they submit timecards that record the date and hours worked'
+}
+
+{
+	'Sujeito': ([[Some , of , the , salaried , employees ]], [Some ]), 
+	'Num_Suj': 1, 
+	'Verbos': [receive ], 
+	'Complemento': [[[a , commission , based , on , their , sales], [receive , commission ]]], 
+	'Sentence': ' Some of the salaried employees also receive a commission based on their sales'
+}
+
+{
+	'Sujeito': ([[They ], [that ]], [They , that ]), 
+	'Num_Suj': 2, 
+	'Verbos': [submit , reflect ], 
+	'Complemento': [[[purchase , orders , that , reflect , the , date , and , amount , of , the , sale], [submit , orders ]], [[the , date , and , amount , of , the , sale], [reflect , date ]]], 
+	'Sentence': ' They submit purchase orders that reflect the date and amount of the sale'
+}
+
+{
+	'Sujeito': ([[One , of , the , most , requested , features , of , the , new , system ]], [One ]), 
+	'Num_Suj': 1, 
+	'Verbos': [is ], 
+	'Complemento': [[[employee , reporting], [is , reporting]]], 
+	'Sentence': 'One of the most requested features of the new system is employee reporting'
+}
+
+{
+	'Sujeito': ([[Employees ], [total , pay ]], [Employees , pay ]), 
+	'Num_Suj': 2, 
+	'Verbos': [be , received ], 
+	'Complemento': [[[able , to , query , the , system , for , hours , worked, , , totals , of , all , hours , billed , to , a , project, , , total , pay , received , year , to , date, , , etc], [be , received ]], [[year , to , date, , , etc], [received , etc]]], 
+	'Sentence': 'Employees will be able to query the system for hours worked, totals of all hours billed to a project, total pay received year to date, etc'
+}
+
+{
+	'Sujeito': ([[Employees ]], [Employees ]), 
+	'Num_Suj': 1, 
+	'Verbos': [choose ], 
+	'Complemento': [[[their , method , of , payment], [choose , method ]]], 
+	'Sentence': ',Employees can choose their method of payment'
+}
+
+{
+	'Sujeito': ([[They ], [they ], [their , paycheck ], [their ]], [They , they , paycheck , their ]), 
+	'Num_Suj': 4, 
+	'Verbos': [have , request , deposited , choosing], 
+	'Complemento': [[[their , paychecks , mailed , to , the , postal , address , of , their , choice, , , or , they , can , request , direct , deposit , and , have , their , paycheck , deposited , into , a , bank , account , of , their , choosing], [have , request ]], [[direct , deposit , and , have , their , paycheck , deposited , into , a , bank , account , of , their , choosing], [request , deposited ]], [[into , a , bank , account , of , their , choosing], [deposited , into ]], [[], [deposited , into ]]], 
+	'Sentence': ' They can have their paychecks mailed to the postal address of their choice, or they can request direct deposit and have their paycheck deposited into a bank account of their choosing'
+}
+
+{
+	'Sujeito': ([[The , employee ]], [employee ]), 
+	'Num_Suj': 1, 
+	'Verbos': [choose ], 
+	'Complemento': [[[to , pick , their , paychecks , up , at , the , offices], [choose , pick ]]], 
+	'Sentence': ' The employee may also choose to pick their paychecks up at the offices'
+}
+
+{
+	'Sujeito': ([[The , Payroll , Administrator ]], [Administrator ]), 
+	'Num_Suj': 1, 
+	'Verbos': [maintains ], 
+	'Complemento': [[[employee , information], [maintains , information]]], 
+	'Sentence': ' The Payroll Administrator maintains employee information'
+}
+
+{
+	'Sujeito': ([[He ]], [He ]), 
+	'Num_Suj': 1, 
+	'Verbos': [is ], 
+	'Complemento': [[[responsible , for , adding , new , employees, , , deleting , employees , and , changing , all , employee , information , such , as , name, , , address , and , payment , classification(hourly, , , salaried, , , commissioned, ), , , as , well , as , running , administrative , reports], [is , as ]]], 
+	'Sentence': ' He is responsible for adding new employees, deleting employees and changing all employee information such as name, address and payment classification(hourly, salaried, commissioned), as well as running administrative reports'
+}
+
+{
+	'Sujeito': ([[The , Payroll , application ]], [application ]), 
+	'Num_Suj': 1, 
+	'Verbos': [run ], 
+	'Complemento': [[[automatically , every , Friday , and , on , the , last , working , day , of , month], [run , on ]]], 
+	'Sentence': 'The Payroll application will run automatically every Friday and on the last working day of month'
+}
+
+{
+	'Sujeito': ([[It ]], [It ]), 
+	'Num_Suj': 1, 
+	'Verbos': [pay ], 
+	'Complemento': [[[the , appropriate , employees , on , those , days], [pay , on ]]], 
+	'Sentence': ' It will pay the appropriate employees on those days'
+}
+
+{
+	'Sujeito': ([[The , system ], [it ], [the , employee ]], [system , it , employee ]), 
+	'Num_Suj': 3, 
+	'Verbos': [told , generate , paid ], 
+	'Complemento': [[[what , date , employees , are , to , be , paid, , , so , it , will , generate , payments , for , records , from , the , last , time , the , employee , was , paid , to , the , specified , date], [told , generate ]], [[payments , for , records , from , the , last , time , the , employee , was , paid , to , the , specified , date], [generate , from ]], [[to , the , specified , date], [paid , to ]]], 
+	'Sentence': ' The system will be told what date employees are to be paid, so it will generate payments for records from the last time the employee was paid to the specified date'
+}
+
+{
+	'Sujeito': ([[The , new , system ], [the , payroll ]], [system , payroll ]), 
+	'Num_Suj': 2, 
+	'Verbos': [designed , generated ], 
+	'Complemento': [[[so , that , the , payroll , will , always , be , generated , automatically , and , there , will , be , need , for , any , manual , intervention], [designed , generated ]], [[automatically , and , there , will , be , need , for , any , manual , intervention], [generated , need ]]], 
+	'Sentence': ' The new system is being designed so that the payroll will always be generated automatically and there will be need for any manual intervention'
+}

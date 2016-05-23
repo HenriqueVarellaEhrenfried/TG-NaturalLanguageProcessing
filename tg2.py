@@ -53,7 +53,35 @@ def get_comp(verbs):
                 partial_subtree_object.append(t1)
         objects.append([partial_subtree_object,[t.head,t]])
     return (objects)
+    
+def token_to_string(a): # Receive an array of tokens, Return a string
+    st = ''
+    for item in a:
+        st+=item.orth_+' '
+    return st[:-1]
 
+def agregate_subj(allSentence):
+    subjSum = 0
+    subjects=[]
+    subject_pronouns=['I','He','She','It','You','We','They']
+    relative_pronouns=['Who','Which','Whose','That','Where','When']
+    adjective_possessive=['My','Your','His','Her','Its','Our','Their']
+    possessive_pronouns=['Mine','Yours','His','Hers','Its','Ours','Theirs']
+    for a in allSentence:
+        for b in a['Sujeito'][0]:
+            vet = token_to_string(b)
+            subjects.append([vet, b, 2]) # 3rd element is the control -> 0 = Not Valid, 1 = Valid, 2 = Not Verified
+    for s in subjects:
+        if s[2]==2:
+            evaluate = (s[0].capitalize() in subject_pronouns) or (s[0].capitalize() in relative_pronouns) or (s[0].split( )[0].capitalize() in adjective_possessive) or (s[0].split( )[0].capitalize() in possessive_pronouns)
+            if evaluate: 
+                s[2] = 0
+            else:
+                s[2] = 1
+    for i, s in enumerate(subjects):
+        if s[2]==0:
+           s[0]=subjects[i-1][0]
+    return subjects
 allSentence = []
 
 for sentence in sentences:
@@ -63,9 +91,15 @@ for sentence in sentences:
     comp = get_comp(verbs)
     dict = {'Sujeito': subj, 'Verbos': verbs, 'Complemento': comp, 'Sentence': sentence, 'Num_Suj': len(subj[1])}
     allSentence.append(dict)
-    print(dict)
+    # print(dict)
+    
+print agregate_subj(allSentence)    
 
-#TODO: Agregar(incluindo os pronomes) sujeitos e gerar os possiveis casos de teste. 
+        
+
+        
+
+#TODO: Verificar se esta ok e remover o 'sistema deve ...'
 
 
 

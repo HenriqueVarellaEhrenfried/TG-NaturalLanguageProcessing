@@ -109,11 +109,9 @@ def agregate_subj(allSentence):
                     s[0] = string_subj_temp
                     
                 last_computed_index = actual_computed_index
-            else:
-                print("ERROR: You are using wrong syntatic element in your phrase")
-                break
            
     return subjects
+
 allSentence = []
 
 for sentence in sentences:
@@ -125,14 +123,12 @@ for sentence in sentences:
     allSentence.append(dict)
     # print(dict)
     
-print agregate_subj(allSentence)    
+ag_subj = agregate_subj(allSentence)
+ag_subj_bkp = ag_subj
 
-        
-
-        
+#TODO: Integrar ag_subj com allSentence
 
 #TODO: Verificar se esta ok e remover o 'sistema deve ...'
-
 
 
 

@@ -78,25 +78,37 @@ def agregate_subj(allSentence):
                 s[2] = 0
             else:
                 s[2] = 1
+                
+    last_computed_index = -1
     for i, s in enumerate(subjects):
         if s[2]==0:
             if (s[0].capitalize() in subject_pronouns) or (s[0].capitalize() in relative_pronouns):
                 s[0]=subjects[i-1][0]
             elif (s[0].split( )[0].capitalize() in adjective_possessive):
-                # TODO: Verify if the previous item is 0, if it is take care
-                owner=subjects[i-1][0]
-                if owner.endswith('s'):
-                    owner = owner + '\''
+                actual_computed_index = i
+                if last_computed_index+1 != actual_computed_index:
+                    owner=subjects[i-1][0]
+                    if owner.endswith('s'):
+                        owner = owner + '\' '
+                    else:
+                        owner = owner + '\'s '
+                    temp_subj = s[0]
+                    array_list = temp_subj.split()
+                    array_list[0] = owner
+                    string_subj_temp=''
+                    for sub in array_list:
+                        string_subj_temp+=sub
+                    s[0] = string_subj_temp
                 else:
-                    owner = owner + '\'s'
-                temp_subj = s[0]
-                array_list = temp_subj.split()
-                array_list[0] = owner
-                string_subj_temp=''
-                for sub in array_list:
-                    string_subj_temp+=sub
-                string_subj_temp=' '
-                s[0] = string_subj_temp
+                    temp_subj = s[0]
+                    array_list = temp_subj.split()
+                    array_list[0] = owner
+                    string_subj_temp=''
+                    for sub in array_list:
+                        string_subj_temp+=sub
+                    s[0] = string_subj_temp
+                    
+                last_computed_index = actual_computed_index
             else:
                 print("ERROR: You are using wrong syntatic element in your phrase")
                 break

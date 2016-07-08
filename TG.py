@@ -3,6 +3,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from pattern.en import singularize
 from itertools import chain
 import re
+import sys
 
 # sentence = 'The man in the room is our teacher.'
 # sentence = 'LIB system shall keep track of all data required by copyright licensing agencies In the Kingdom and elsewhere'
@@ -163,3 +164,21 @@ print allSentence
 
 # The way to acces the dictionary
 # print(allSentence[0][0]["Sujeito"])
+
+
+
+
+
+class Text:
+    def __init__(self, nlp, verb, text=None): 
+        self.nlp = nlp
+        self.verb = verb
+        self.sentences = Text.gen_sentences(self,text)
+    def gen_sentences(self, text):
+        if text!=None:
+            sentences = text.split(".")
+            return sentences
+        else:
+            sys.exit("Invalid Text!!")
+            
+t = Text(English(),WordNetLemmatizer(),'I like pizza')

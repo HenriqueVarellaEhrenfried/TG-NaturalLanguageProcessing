@@ -1,7 +1,7 @@
 from spacy.en import English
 from nltk.stem.wordnet import WordNetLemmatizer
-from pattern.en import singularize
 from itertools import chain
+import inflection
 import re
 
 # sentence = 'The man in the room is our teacher.'
@@ -115,7 +115,7 @@ def agregate_subj(allSentence):
 allSentence = []
 
 for sentence in sentences:
-    doc = nlp(unicode(sentence))
+    doc = nlp((sentence))
     subj = get_subject(doc)
     verbs = get_verb(subj)
     comp = get_comp(verbs)
@@ -126,11 +126,10 @@ for sentence in sentences:
 ag_subj = agregate_subj(allSentence)
 # ag_subj_bkp = ag_subj
 
-print ag_subj
+print (ag_subj)
 print("-------------")
-print allSentence
+print (allSentence)
 
-    
 #TODO: Integrar ag_subj com allSentence
 
 #TODO: Verificar se esta ok e remover o 'sistema deve ...'

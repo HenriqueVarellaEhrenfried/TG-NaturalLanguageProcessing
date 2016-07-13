@@ -156,9 +156,9 @@ import re
 
 
 class Text:
-    def __init__(self, nlp, verb, text=None): 
+    def __init__(self, nlp, verb_processor, text=None): 
         self.nlp = nlp
-        self.verb = verb
+        self.verb_processor = verb_processor
         self.sentences = Text.gen_sentences(self,text)
     def gen_sentences(self, text):
         if text!=None:
@@ -166,6 +166,46 @@ class Text:
             return sentences
         else:
             sys.exit("Invalid Text!!")
+
+class Sentence:
+    def __init__(self, sentence): 
+        self.original_sentence = sentence
+        self.subjects=Sentence.get_subject(self, self.original_sentence)
+        self.verbs=Sentence.get_verb(self, self.subjects)
+        self.complements=Sentence.get_comp(self, self.verbs)
+
+    def get_subject(self, sent):
+        subject_init_token = []
+        for token in sent:
+            if (re.match(r'nsubj', token.dep_)):
+                subject_init_token.append(token)
+        subjects = []
+        for token in subject_init_token:
+            partial_subtree_subject = []
+            for tk in token.subtree:
+                partial_subtree_subject.append(tk)
+            subjects.append(partial_subtree_subject)
+        return (subjects, subject_init_token)
+
+    def get_verb(self, subj):
+        verbs = []
+        for s in subj[1]:
+            verb_in_sentence = s.head
+            verbs.append(verb_in_sentence)
+        return verbs
+
+    def get_comp(self, verbs):
+        objects = []
+        for token in verbs:
+            partial_subtree_object = []
+            for tk in token.rights:
+                for t1 in tk.subtree:
+                    partial_subtree_object.append(t1)
+            objects.append([partial_subtree_object,[tk.head, tk]])
+        return (objects)
+       
+    
             
 t = Text(English(),WordNetLemmatizer(),'I like pizza')
-print(t.sentences)
+s = Sentence(t.sentences)
+print(s)

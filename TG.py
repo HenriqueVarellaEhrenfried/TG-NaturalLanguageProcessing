@@ -119,11 +119,24 @@ class Sentence:
         return (objects)
     
 
-t = Text(English(),WordNetLemmatizer(),'I like pizza')
-s = []
-for sntc in t.tokenized_sentences:
-    s.append(Sentence(sntc))
-print(s[0])
-print(s[0].subjects)
-print(s[0].verbs)
-print(s[0].complements)
+class MainClass:
+    def __init__(self, data): 
+        # self.data = open(data+'.txt').read()
+        self.data = data
+        self.t = Text(English(), WordNetLemmatizer(), self.data)
+        self.s = self.call_senteces(self.t)
+    def call_senteces(self, t):
+        s = []
+        for sntc in t.tokenized_sentences:
+            s.append(Sentence(sntc))
+        return s
+    def print_sentences(s):
+        for result in s:
+            print(result.subjects)
+            print(result.verbs)
+            print(result.complements)
+            print("-------------------------------------")
+
+
+result = MainClass("I like pizza")
+MainClass.print_sentences(result.s)

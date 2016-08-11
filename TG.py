@@ -3,6 +3,8 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from itertools import chain
 import inflection
 import re
+import sys
+import json
 
 problem = "A Company needs a new system called, Payroll System, to allow employees to record timecard information electronically and automatically generate paychecks based on the number of hours worked and total amount of sales(for commissioned employees). The new system will be state of art and will have a Windows-based desktop interface to allow employees to enter timecard information, enter purchase orders, change employee preferences (such as payment method) and create various reports. The system will run on individual employee desktops throughout the entire company.The system will retain information on all employees in the company. The system must pay each employee the correct amount, on time, by the method that they specify.Some employees work by the hour and are paid an hourly rate. They submit timecards that record the date and number of hours worked for a particular charge number. Some employees are paid a flat salary. Even though they are paid a flat salary, they submit timecards that record the date and hours worked. Some of the salaried employees also receive a commission based on their sales. They submit purchase orders that reflect the date and amount of the sale.One of the most requested features of the new system is employee reporting.Employees will be able to query the system for hours worked, totals of all hours billed to a project, total pay received year to date, etc.,Employees can choose their method of payment. They can have their paychecks mailed to the postal address of their choice, or they can request direct deposit and have their paycheck deposited into a bank account of their choosing. The employee may also choose to pick their paychecks up at the offices. The Payroll Administrator maintains employee information. He is responsible for adding new employees, deleting employees and changing all employee information such as name, address and payment classification(hourly, salaried, commissioned), as well as running administrative reports.The Payroll application will run automatically every Friday and on the last working day of month. It will pay the appropriate employees on those days. The system will be told what date employees are to be paid, so it will generate payments for records from the last time the employee was paid to the specified date. The new system is being designed so that the payroll will always be generated automatically and there will be need for any manual intervention"
 
@@ -133,10 +135,11 @@ class Sentence:
 
 class MainClass:
     def __init__(self, data): 
-        # self.data = open(data+'.txt').read()
-        self.data = data
+        self.data = self.menu(data)
         self.t = Text(English(), WordNetLemmatizer(), self.data)
         self.s = self.call_senteces(self.t)
+    def menu(self, data):
+        return data[-1]        
     def call_senteces(self, t):
         s = []
         for sntc in t.tokenized_sentences:
@@ -160,8 +163,29 @@ class MainClass:
                 print("Action = " + verbs[i].orth_)
                 print("Complement = " + Text.token_to_string(comps[i][0]))
                 print("---")
-                i+=1 
+                i+=1
+    def generate_json(s):
+        data=[]
+        j = 0
+        for result in s:
+            i = 0
+            subjs = result.subjects[1]
+            verbs = result.verbs
+            comps = result.complements
+            iterate_until = max(len(verbs), len(comps), len(subjs))
+            while i < iterate_until:
+                data_temp={}
+                data_temp["id"]=j+1
+                data_temp["actor"]=subjs[i][0]
+                data_temp["action"]=verbs[i].orth_
+                data_temp["complement"]=Text.token_to_string(comps[i][0])
+                data.append(data_temp)
+                i+=1
+                j+=1
+        json_data = json.dumps(data)
+        return json_data
 
-result = MainClass(problem)
-MainClass.print_sentences(result.s)
-MainClass.format_sentence(result.s)
+result = MainClass(sys.argv)
+# MainClass.print_sentences(result.s)
+# MainClass.format_sentence(result.s)
+print(MainClass.generate_json(result.s))
